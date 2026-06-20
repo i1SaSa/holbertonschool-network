@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script shows the attached IP addresses of the machine.
 
-ip -4 addr show | awk '/inet / {print $2}' | cut -d'/' -f1
+ifconfig | grep 'inet ' | awk '{print $2}' | sed 's/addr://'
